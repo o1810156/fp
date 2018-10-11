@@ -63,10 +63,18 @@ i = 1000
 while true
     t = Time.now
     primes = primes_byErat(i)
-    if Time.now - t >= 10
+    dt = Time.now - t
+    if dt >= 10
+        puts "Time : #{dt} s"
         puts "i : #{i}"
         puts "len : #{primes.length}"
         break
     end
      i += 100
 end
+
+# =>
+# i : 13500
+# len : 1600
+
+# だいたい10秒で13500個ほどは処理できることが分かった。
