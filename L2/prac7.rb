@@ -43,7 +43,7 @@ primes = primes_byErat(1000)
 
 # puts primes
 
-require "prac6.rb" # 演習 6の関数で結果が正しいかを判断する
+require "./prac6" # 演習 6の関数で結果が正しいかを判断する
 
 def checker(lis)
     for i in lis
