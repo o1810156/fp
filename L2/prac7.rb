@@ -60,7 +60,7 @@ end
 # 以下、10秒間にいくつ処理できるかをテストする。
 i = 1000
 
-while True
+while true
     t = Time.now
     primes = primes_byErat(i)
     if Time.now - t >= 10
