@@ -43,7 +43,7 @@ primes = primes_byErat(1000)
 
 puts primes
 
-load "prac6.rb" # 演習 6の関数で結果が正しいかを判断する
+include "prac6.rb" # 演習 6の関数で結果が正しいかを判断する
 
 def checker(lis)
     for i in lis
@@ -65,7 +65,7 @@ while true
     primes = primes_byErat(i)
     if Time.now - t >= 10
         puts "i : #{i}"
-        puts "len : #{len(primes)}"
+        puts "len : #{primes.length}"
         break
     end
      i += 100
