@@ -1,4 +1,4 @@
 *
-!*.rb
-!*.md
+!L*/*.rb
+!L*/*.md
 !.gitignore
