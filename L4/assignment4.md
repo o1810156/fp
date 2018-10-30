@@ -1271,6 +1271,14 @@ def perm(a, n, s="")
 	end
 	return res
 end
+
+r = perm([1, 2, 3, 4, 5], 3)
+
+for _p in r
+	p _p
+end
+
+p r.length
 ```
 
 条件分岐と再帰を利用して順列を実現した。
