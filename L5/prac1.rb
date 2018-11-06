@@ -18,6 +18,12 @@ for x in 0..199
 end
 img_a.write2ppm(PATH+"p_a.ppm")
 
+img_a2 = Image.new(200, 200)
+for x in 0..199
+    img_a2.pset(x, 199-x, 0, 255, 0)
+end
+img_a2.write2ppm(PATH+"p_a2.ppm")
+
 # b 幅nの線を引く
 def line_n(n)
     img = Image.new(300, 200)
@@ -220,4 +226,21 @@ polygon_img([[150, 50] \
             ,[(150+50*(Math::sqrt(3)/(2.to_f))).to_i, 75] \
         ], fill=true, color=Pixel.new(0, 255, 255), name="hexagon")
 
-# polygon_img([], fill=true, color=Pixel.new(255, 255, 0), name="star")
+def rotate(p0, center, theta)
+    pos = [0, 1].map do |i| p0[i] - center[i] end
+    return [Math::cos(theta)*pos[0]-Math::sin(theta)*pos[1]+center[0],
+            Math::sin(theta)*pos[0]+Math::cos(theta)*pos[1]+center[1]]
+end
+
+pentagon = []
+p0 = [150, 50]
+center = [150, 100]
+pentagon.push(p0)
+for i in 1..4
+    x, y = rotate(p0, center, (2*Math::PI*i)/5.0).map do |t| t.to_i end
+    pentagon.push([x, y])
+end
+
+points = [0, 2, 4, 1, 3].map do |i| pentagon[i] end
+# points = pentagon
+polygon_img(points, fill=true, color=Pixel.new(255, 255, 0), name="star")

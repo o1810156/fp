@@ -26,7 +26,7 @@ class Image_alpha
     end
 end
 
-# 以下演習3の
+# 以下演習3の該当範囲とほぼ同じである。
 # ==== fill_OO ====
 
 def fill_circle(img, x0, y0, rad, filter=lambda{|x, y| Pixel.new(0, 0, 0)})
@@ -80,7 +80,8 @@ def fill_reg_polygon(img, n, center, p0, filter=lambda{|x, y| Pixel.new(0, 0, 0)
     tmp_p = p0
     ps = Array.new(n-1) {
         pos = Array.new(2) {|i| tmp_p[i]-center[i]}
-        tmp_p = [Math::cos(theta)*pos[0]-Math::sin(theta)*pos[1]+center[0], Math::cos(theta)*pos[0]+Math::sin(theta)*pos[1]+center[1]]
+        tmp_p = [Math::cos(theta)*pos[0]-Math::sin(theta)*pos[1]+center[0],
+                 Math::sin(theta)*pos[0]+Math::cos(theta)*pos[1]+center[1]]
         [tmp_p[0].to_i, tmp_p[1].to_i]
     }
     ps.insert(0, [p0[0].to_i, p0[1].to_i])
@@ -90,4 +91,3 @@ def fill_reg_polygon(img, n, center, p0, filter=lambda{|x, y| Pixel.new(0, 0, 0)
 end
 
 # ==== ####### ====
-# とほぼ同じ内容なので省略

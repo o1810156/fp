@@ -2,4 +2,5 @@
 !*/
 !*.rb
 !*.md
+!*/*.png
 !.gitignore

@@ -94,7 +94,8 @@ def fill_reg_polygon(img, n, center, p0, r, g, b)
     tmp_p = p0
     ps = Array.new(n-1) {
         pos = Array.new(2) {|i| tmp_p[i]-center[i]}
-        tmp_p = [Math::cos(theta)*pos[0]-Math::sin(theta)*pos[1]+center[0], Math::cos(theta)*pos[0]+Math::sin(theta)*pos[1]+center[1]]
+        tmp_p = [Math::cos(theta)*pos[0]-Math::sin(theta)*pos[1]+center[0],
+                 Math::sin(theta)*pos[0]+Math::cos(theta)*pos[1]+center[1]]
         [tmp_p[0].to_i, tmp_p[1].to_i]
     }
     ps.insert(0, [p0[0].to_i, p0[1].to_i])
@@ -108,3 +109,15 @@ end
 img_d = Image.new(3000, 2000)
 fill_reg_polygon(img_d, 8, [1500, 1000], [1500-500/(Math::tan((3/8.0)*Math::PI)), 500], 255, 165, 0)
 img_d.write2ppm(PATH+"p_d.ppm")
+
+img_penta = Image.new(300, 200)
+fill_reg_polygon(img_penta, 5, [150, 100], [150, 50], 0, 0, 255)
+img_penta.write2ppm(PATH+"p_penta.ppm")
+
+img_hex = Image.new(300, 200)
+fill_reg_polygon(img_hex, 6, [150, 100], [(150-50*(Math::sqrt(3)/(2.to_f))).to_i, 75], 0, 0, 255)
+img_hex.write2ppm(PATH+"p_hex.ppm")
+
+# img_hoge = Image.new(300, 200)
+# fill_reg_polygon(img_hoge, 6, [150, 100], [150-50/(Math::tan((3/8.0)*Math::PI)), 50], 255, 165, 0)
+# img_hoge.write2ppm(PATH+"p_hoge.ppm")
