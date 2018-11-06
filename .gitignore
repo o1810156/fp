@@ -2,5 +2,6 @@
 !*/
 !*.rb
 !*.md
-!*/*.png
+!prac*_pics/
+!*.png
 !.gitignore
