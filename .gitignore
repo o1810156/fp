@@ -5,5 +5,5 @@
 !prac*_pics/
 !*.png
 !.gitignore
-!.c
-!.py
+!*.c
+!*.py
