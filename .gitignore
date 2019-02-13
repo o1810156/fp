@@ -6,5 +6,6 @@
 !*.png
 !.gitignore
 !*.c
+!*.h
 !*.py
 !*.gif
